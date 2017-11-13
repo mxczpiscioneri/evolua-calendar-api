@@ -7,19 +7,38 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true
     },
     name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false
+      }
     }, 
     email: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: false
+      }
     },
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false
+      }
     }
   }, {
     tableName: 'users',
-    timestamps: true
+    timestamps: true,
+    classMethods: {
+      associate: function (models) {
+        User.hasMany(models.CalendarEvent);
+      }
+    }
   })
+
+  sequelize.sync()
 
   return User
 }

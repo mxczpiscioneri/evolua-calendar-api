@@ -40,7 +40,7 @@ module.exports = {
       .create({
         name: name,
         email: email,
-        password: password,
+        password: password
       })
       .then((user) => {
         if (!user) {
