@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "NODE_ENV=test mocha --require mocha-babel",
     "start": "nodemon index.js --exec babel-node",
     "build": "babel lib -d dist"
   },
@@ -25,11 +25,16 @@
     "sequelize": "^4.22.6"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "nodemon": "^1.12.1"
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0"
   }
 }

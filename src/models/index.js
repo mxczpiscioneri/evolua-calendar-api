@@ -10,6 +10,7 @@ const sequelize = new Sequelize(config.database.schema, config.database.user, co
   dialect: config.database.dialect,
   host: config.database.host,
   port: config.database.port,
+  logging: false
 })
 
 fs.readdirSync(__dirname).filter(function (file) {
